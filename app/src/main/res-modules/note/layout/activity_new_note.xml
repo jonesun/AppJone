@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jone.app.ui.activities.NewNoteActivity"
+    android:background="@android:color/darker_gray">
+
+    <com.jone.app.ui.view.EmoticonsEditText
+        android:id="@+id/chat_textditor_eet_editer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:imeOptions="flagNoExtractUi"
+        android:background="@drawable/bg_edit_note"
+        android:maxHeight="120dip"
+        android:maxLength="4000"
+        android:minHeight="46dip"
+        android:paddingTop="3dip"
+        android:paddingLeft="3dp"
+        android:layout_margin="16dp"
+        android:textColor="@android:color/background_dark"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutMenu"
+        android:layout_below="@+id/chat_textditor_eet_editer">
+        <LinearLayout
+            android:id="@+id/layout_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnAddExpression"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="表情"
+                android:textColor="@android:color/holo_blue_bright"/>
+            <Button
+                android:id="@+id/btnAddPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="图片"
+                android:textColor="@android:color/holo_blue_bright"/>
+            <Button
+                android:id="@+id/btnAddVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="视频"
+                android:textColor="@android:color/holo_blue_bright"/>
+            <Button
+                android:id="@+id/btnAddLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="定位"
+                android:textColor="@android:color/holo_blue_bright"/>
+        </LinearLayout>
+
+
+        <com.jone.app.ui.view.EmoteInputView
+            android:id="@+id/chat_eiv_inputview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnAddExpression"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

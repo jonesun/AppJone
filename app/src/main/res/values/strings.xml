@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">帮手</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_action_bar_tabs">ActionBarTabsActivity</string>
+    <string name="title_activity_swipe_viewa">SwipeViewaActivity</string>
+    <string name="title_activity_swipe_views">SwipeViewsActivity</string>
+    <string name="title_activity_action_bar_spinner">ActionBarSpinnerActivity</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="note">日记随笔</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="jone_wallpaper">Jone壁纸</string>
+    <string name="jone_wallpaper_live">Jone动态壁纸</string>
+    <string name="title_activity_guide">GuideActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_jone_aidl_client">JoneAidlClientActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_test_grid_layout">TestGridLayoutActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_new_note">NewNoteActivity</string>
+    <string name="title_activity_image_shower">ImageShowerActivity</string>
+    <string name="title_activity_select_pic_popup_window">SelectPicPopupWindowActivity</string>
+    <string name="title_activity_select_video_popup_window">SelectVideoPopupWindowActivity</string>
+    <string name="title_activity_video_play">VideoPlayActivity</string>
+    <string name="title_activity_full_video_play">FullVideoPlayActivity</string>
+    <string name="title_activity_full_splash">FullSplashActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_keydemo">KeydemoActivity</string>
+    <string name="title_activity_contact">联系人</string>
+    <string name="title_activity_stand_weight">StandWeightActivity</string>
+    <string name="title_activity_flashlight">FlashlightActivity</string>
+
+</resources>

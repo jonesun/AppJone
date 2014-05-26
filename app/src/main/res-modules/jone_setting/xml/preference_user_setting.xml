@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="基本设置">
+        <Preference android:title="更换壁纸"
+            android:key="pre_change_wallpaper"/>
+        <CheckBoxPreference android:title="打开悬浮窗口"
+            android:key="chP_open_float_window"/>
+        <Preference android:title="测试"
+            android:key="pre_test"
+            android:summary="未设置"/>
+    </PreferenceCategory>
+</PreferenceScreen>

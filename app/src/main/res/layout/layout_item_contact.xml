@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:descendantFocusability="blocksDescendants">
+    <ImageView
+        android:id="@+id/imPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon"
+        android:layout_marginRight="6dp"/>
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imPhoto"
+        android:text="姓名1"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:id="@+id/txtNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imPhoto"
+        android:layout_below="@+id/txtName"
+        android:text="123456789"/>
+
+    <ImageButton
+        android:id="@+id/imBtnSendSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/sym_action_chat"
+        android:layout_toLeftOf="@+id/imBtnCall"
+        android:focusable="false"/>
+    <ImageButton
+        android:id="@+id/imBtnCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/sym_action_call"
+        android:layout_alignParentRight="true"
+        android:focusable="false"/>
+</RelativeLayout>

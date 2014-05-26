@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="管理设置">
+        <CheckBoxPreference
+            android:title="开启设备管理器"
+            android:key="is_start_device_manager"/>
+        <EditTextPreference
+            android:title="设置锁屏密码"
+            android:key="lock_screen_password"
+            android:numeric="integer"
+            android:summary="未设置"
+            android:dependency="is_start_device_manager"/>
+        <Preference
+            android:title="锁定屏幕"
+            android:key="lock_screen"
+            android:dependency="is_start_device_manager"/>
+    </PreferenceCategory>
+</PreferenceScreen>

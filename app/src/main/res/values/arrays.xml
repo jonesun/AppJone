@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titles">
+        <item>主页</item>
+        <item>应用列表</item>
+        <item>设备信息</item>
+        <item>关于</item>
+        <item>测试</item>
+    </string-array>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AppJone.iml" filepath="$PROJECT_DIR$/AppJone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileExplorer/FileExplorer.iml" filepath="$PROJECT_DIR$/FileExplorer/FileExplorer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZxingDemo/ZxingDemo.iml" filepath="$PROJECT_DIR$/ZxingDemo/ZxingDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
+    </modules>
+  </component>
+</project>
+

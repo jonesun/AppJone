@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_jone_main_center_bg"
+    android:padding="6dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLocation"
+            android:text="当前城市: 未知"
+            android:textColor="@android:color/holo_blue_bright"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改"
+            android:textColor="@color/text_change_city"
+            android:id="@+id/txtChangeCity"
+            android:visibility="invisible"
+            android:layout_toRightOf="@+id/txtLocation"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtWeather"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_below="@+id/txtLocation"/>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:id="@+id/imWeatherIcon"
+            android:src="@drawable/weather_sunny"
+            android:layout_alignParentRight="true"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+
+    <TextSwitcher
+        android:id="@+id/textSwitcherNews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

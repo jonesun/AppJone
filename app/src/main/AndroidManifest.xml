@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jone.app" >
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:resizeable="true"
+        android:anyDensity="true"/>
+    <application
+        android:name="com.jone.app.App"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.jone.app.ui.activities.fullScreen.splash.FullSplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.guide.GuideActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.JoneMainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.LoginActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.ActionBarTabsActivity"
+            android:label="@string/title_activity_action_bar_tabs" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.SwipeViewsActivity"
+            android:label="@string/title_activity_swipe_views"
+            android:parentActivityName="com.jone.app.ui.JoneMainActivity" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.ActionBarSpinnerActivity"
+            android:label="@string/title_activity_action_bar_spinner" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.fullscreen.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.masterDetail.ItemListActivity"
+            android:label="@string/note" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.masterDetail.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName="com.jone.app.ui.masterDetail.ItemListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jone.app.ui.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.setting.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.setting.joneSettings.JoneSettingsActivity"
+            android:label="@string/action_settings"
+            android:theme="@android:style/Theme.Holo" >
+        </activity>
+        <activity
+            android:name="com.jone.app.wifidirect.discovery.WiFiServiceDiscoveryActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="net.micode.fileexplorer.FileExplorerTabActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:label="@string/file_explorer"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:uiOptions="splitActionBarWhenNarrow" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+
+                <category android:name="android.intent.category.OPENABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.jone.app.services.JoneRemoteService"
+            android:exported="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.jone.service.IJoneService" />
+            </intent-filter>
+        </service>
+
+        <!-- 配置实时壁纸Service -->
+        <service
+            android:name="com.jone.app.ui.wallpaper.BgWallpaperService"
+            android:label="@string/jone_wallpaper"
+            android:permission="android.permission.BIND_WALLPAPER" >
+
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper_bg" />
+        </service>
+
+        <!-- 配置实时壁纸Service -->
+        <service
+            android:name="com.jone.app.ui.wallpaper.LiveWallpaper"
+            android:label="@string/jone_wallpaper_live"
+            android:permission="android.permission.BIND_WALLPAPER" >
+
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/live_wallpaper" />
+        </service>
+        <service android:name="com.jone.app.services.JoneShowFloatLayoutService" />
+
+        <receiver
+            android:name="com.jone.app.broadcasts.JoneDeviceAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/jone_device_admin" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 天气widget -->
+        <receiver
+            android:name="com.jone.app.ui.weatherWidget.ui.WeatherWidget"
+            android:label="JoneWeather" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="jone.intent.action.update.weather" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_weather" />
+        </receiver>
+
+        <service android:name="com.jone.app.ui.weatherWidget.service.AppWidgetService" />
+        <!-- 天气widget  end -->
+
+        <provider
+            android:name="com.jone.app.contentprovider.CallRecordsContentProvider"
+            android:authorities="com.jone.app.contentprovider.CallRecordsContentProvider" />
+
+        <activity
+            android:name="com.jone.app.ui.activities.JoneAidlClientActivity"
+            android:label="@string/title_activity_jone_aidl_client" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.TestGridLayoutActivity"
+            android:label="@string/title_activity_test_grid_layout" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.NewNoteActivity"
+            android:label="@string/title_activity_new_note" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.ImageShowerActivity"
+            android:label="@string/title_activity_image_shower" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.SelectPicPopupWindowActivity"
+            android:label="@string/title_activity_select_pic_popup_window"
+            android:theme="@style/MyDialogStyleBottom" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.SelectVideoPopupWindowActivity"
+            android:label="@string/title_activity_select_video_popup_window"
+            android:theme="@style/MyDialogStyleBottom" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.fullScreen.videoplay.FullVideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.keyboard.KeydemoActivity"
+            android:label="@string/title_activity_keydemo" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.ContactActivity"
+            android:label="@string/title_activity_contact" >
+        </activity>
+
+        <service
+            android:name="com.jone.app.services.MyService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name="com.jone.app.ui.activities.StandWeightActivity"
+            android:label="@string/title_activity_stand_weight" >
+        </activity>
+        <activity
+            android:name="com.jone.app.ui.activities.FlashlightActivity"
+            android:label="@string/title_activity_flashlight" >
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Google Play filtering -->
+    <uses-feature
+        android:name="android.hardware.wifi.direct"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 获取CompatModeWrapper -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 读联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 写联系人权限 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <!-- &lt;!&ndash;允许程序传入电话拨号直接拨号，不需要通过用户界面确认&ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE"/> -->
+    <!-- &lt;!&ndash;允许程序将电话号码传给拨号程序，需要用户确认好才会拨出电话&ndash;&gt; -->
+    <!-- <uses-permission android:name="android.permission.CALL_PRIVILEGED"/> -->
+
+
+    <!-- 摄像头、手电筒 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+
+</manifest>

@@ -1,0 +1,99 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.1'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+
+    //打包签名
+    signingConfigs {
+        release {
+            storeFile file('store.jks')
+            storePassword 'sunjianan22'
+            keyAlias 'jonesun'
+            keyPassword 'sunjianan22'
+//            storeFile file(System.getenv("KEYSTORE"))
+//            storePassword System.getenv("KEYSTORE_PASSWORD")
+//            keyAlias System.getenv("KEY_ALIAS")
+//            keyPassword System.getenv("KEY_PASSWORD")
+        }
+    }
+
+    /****代码混淆****/
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    /****代码混淆end****/
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            //java.srcDirs = ['src/main/java']
+            res.srcDirs = getSrcDirs('src/main/res', 'src/main/res-modules')
+        }
+    }
+
+//    //生成不同的APK包，有不同的包名，或者不同的资源
+//    productFlavors {
+//        appJone {
+//            packageName "com.jone.appJone"
+////            versionCode 20
+//        }
+////        jone {
+////            packageName "com.jone.app"
+////        }
+//
+//    }
+}
+
+def getSrcDirs(defaultSrcDirs, customSrcDirsRoot) {
+    empty1 = [defaultSrcDirs]
+    FileTree tree = fileTree(dir: customSrcDirsRoot)
+    tree.visit { element ->
+        if (element.isDirectory() && element.relativePath.toString().indexOf("/") == -1) {
+            empty1.add element.file.toString()
+        }
+    }
+    return empty1;
+}
+
+tasks.withType(JavaCompile) {
+    // 显示警告信息的具体位置
+    options.compilerArgs = ['-Xlint:unchecked', '-Xlint:deprecation']
+}
+
+dependencies {
+    //
+    //
+    compile project(':lib')
+    compile fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    compile project(':FileExplorer')
+    compile project(':ZxingDemo')
+    compile 'com.android.support:support-v4:19.0.0'
+    compile 'com.android.support:support-v13:+'
+    compile 'com.belerweb:pinyin4j:2.5.0'
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.jayway.android.robotium:robotium-solo:5.1'
+    compile 'com.android.support:appcompat-v7:19.+'
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:background="@drawable/layout_bg"
+	android:layout_width="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="12dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="确定"  
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+	
+	<LinearLayout 
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_width="fill_parent"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="4dp"
+		android:layout_marginTop="8dp"
+		android:orientation="horizontal">
+	
+   <kankan.wheel.widget.WheelView android:id="@+id/country"
+        android:layout_height="110dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"/>
+	
+	<kankan.wheel.widget.WheelView android:id="@+id/city"
+		android:layout_height="110dp"
+		android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+		android:layout_marginLeft="5dp"
+		android:layout_weight="1"/>
+	
+	</LinearLayout>
+	
+	<!-- Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="18dp"
+		android:textSize="18sp"
+		android:text="    Next >   "/-->
+
+</LinearLayout>

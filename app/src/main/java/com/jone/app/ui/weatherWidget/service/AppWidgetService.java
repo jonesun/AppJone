@@ -70,11 +70,11 @@ public class AppWidgetService extends Service{
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date(currentTime));
             updateTime(currentTime);
-            if(isUpdateWeather(calendar)){
+            if(WeatherUtil.isUpdateWeather(AppWidgetService.this, calendar)){
                 //更新天气
                 App.getInstance().getHandler().post(runnableGetWeather);//更新天气
             }
-            if(isUpdateCalendar(calendar)){
+            if(WeatherUtil.isUpdateCalendar(calendar)){
                 updateCalendar(calendar);
             }
         }
@@ -109,30 +109,6 @@ public class AppWidgetService extends Service{
         }else {
             return Utils.formatDataTime(currentTime, "hh:mm");
         }
-    }
-
-    private boolean isUpdateWeather(Calendar calendar){
-        //每天0:00、8:00、16:00更新天气
-        int hour;
-        if(DateFormat.is24HourFormat(AppWidgetService.this)){
-            hour = calendar.get(Calendar.HOUR_OF_DAY);
-        }else {
-            hour = calendar.get(Calendar.HOUR);
-        }
-        if(((hour % 8) == 0) && (calendar.get(Calendar.MINUTE) == 0) && (calendar.get(Calendar.SECOND) == 0) ){
-            System.out.println("更新天气: " + hour);
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isUpdateCalendar(Calendar calendar){
-        //每天0:00更新日历
-        if((calendar.get(Calendar.HOUR_OF_DAY) == 0 && calendar.get(Calendar.MINUTE) == 0) || (calendar.get(Calendar.HOUR_OF_DAY) == 0 && calendar.get(Calendar.MINUTE) == 1)){
-            System.out.println("更新日历");
-            return true;
-        }
-        return false;
     }
 
     private Runnable runnableGetWeather = new Runnable() {

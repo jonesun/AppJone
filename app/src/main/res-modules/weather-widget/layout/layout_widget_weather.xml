@@ -10,7 +10,7 @@
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/weather_sunny"/>
     <RelativeLayout
         android:id="@+id/layout_weather_txt_info"

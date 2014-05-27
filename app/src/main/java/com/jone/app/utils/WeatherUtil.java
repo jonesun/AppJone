@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Message;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 import com.android.volley.Response;
@@ -217,5 +218,29 @@ public class WeatherUtil {
             }
         }
         return weatherIcon;
+    }
+
+    public static boolean isUpdateCalendar(Calendar calendar){
+        //每天0:00更新日历
+        if((calendar.get(Calendar.HOUR_OF_DAY) == 0 && calendar.get(Calendar.MINUTE) == 0) || (calendar.get(Calendar.HOUR_OF_DAY) == 0 && calendar.get(Calendar.MINUTE) == 1)){
+            System.out.println("更新日历");
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isUpdateWeather(Context context, Calendar calendar){
+        //每天0:10、8:10、16:10更新天气
+        int hour;
+        if(DateFormat.is24HourFormat(context)){
+            hour = calendar.get(Calendar.HOUR_OF_DAY);
+        }else {
+            hour = calendar.get(Calendar.HOUR);
+        }
+        if(((hour % 8) == 0) && (calendar.get(Calendar.MINUTE) == 10)){
+            System.out.println("更新天气: " + hour);
+            return true;
+        }
+        return false;
     }
 }

@@ -72,4 +72,16 @@ public class SystemUtil {
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics;
     }
+
+    /**
+     * 精确获取屏幕尺寸（例如：3.5、4.0、5.0寸屏幕）
+     * @param ctx
+     * @return
+     */
+    public static double getScreenPhysicalSize(Activity ctx) {
+        DisplayMetrics dm = new DisplayMetrics();
+        ctx.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        double diagonalPixels = Math.sqrt(Math.pow(dm.widthPixels, 2) + Math.pow(dm.heightPixels, 2));
+        return diagonalPixels / (160 * dm.density);
+    }
 }

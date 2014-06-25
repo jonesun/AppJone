@@ -86,20 +86,22 @@ public class ControlLogic {
                     @Override
                     public void onClick(View view) {
                         activity.startActivity(new Intent(activity, CaptureActivity.class));
+                        activity.overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);//由左向右滑入的效果
                     }
                 }));
-        controlBeans.add(new ControlBean(8, activity.getString(R.string.note), R.drawable.ic_menu_note, null,
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        activity.startActivity(new Intent(activity, ItemListActivity.class));
-                    }
-                }));
+//        controlBeans.add(new ControlBean(8, activity.getString(R.string.note), R.drawable.ic_menu_note, null,
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        activity.startActivity(new Intent(activity, ItemListActivity.class));
+//                    }
+//                }));
         controlBeans.add(new ControlBean(9, "手电筒", R.drawable.ic_menu_flashlight, null,
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         activity.startActivity(new Intent(activity, FlashlightActivity.class));
+                        activity.overridePendingTransition(R.anim.zoomin, R.anim.zoomout); //类似iphone的进入和退出时的效果
                     }
                 }));
         return controlBeans;

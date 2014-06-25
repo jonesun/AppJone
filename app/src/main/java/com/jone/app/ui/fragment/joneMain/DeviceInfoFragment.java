@@ -66,7 +66,7 @@ public class DeviceInfoFragment extends JoneBaseFragment {
         addItemView("系统API级别", android.os.Build.VERSION.SDK_INT + "");
 
         DisplayMetrics displayMetrics = SystemUtil.getDisplayMetrics(getActivity());
-        addItemView("屏幕分辨率", displayMetrics.widthPixels + " X " + displayMetrics.heightPixels);
+        addItemView("屏幕分辨率", displayMetrics.widthPixels + " X " + displayMetrics.heightPixels + " " + SystemUtil.getScreenPhysicalSize(getActivity()));
         addItemView("屏幕密度", displayMetrics.densityDpi + "(" + displayMetrics.density + ")");
 
         addItemView("设备用户名", android.os.Build.USER);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jone.app" >
+    package="com.jone.app">
     <supports-screens
         android:smallScreens="true"
         android:normalScreens="true"
@@ -10,7 +10,7 @@
     <application
         android:name="com.jone.app.App"
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -23,10 +23,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
 
-                <!--&lt;!&ndash; 替换系统的Launcher &ndash;&gt;-->
-                <!--<category android:name="android.intent.category.HOME" />-->
-                <!--<category android:name="android.intent.category.MONKEY" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
             </intent-filter>
         </activity>
         <activity
@@ -133,33 +129,27 @@
             </intent-filter>
         </service>
 
-        <!-- 配置实时壁纸Service -->
         <service
             android:name="com.jone.app.ui.wallpaper.BgWallpaperService"
             android:label="@string/jone_wallpaper"
             android:permission="android.permission.BIND_WALLPAPER" >
 
-            <!-- 为实时壁纸配置intent-filter -->
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
-            <!-- 为实时壁纸配置meta-data -->
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/wallpaper_bg" />
         </service>
 
-        <!-- 配置实时壁纸Service -->
         <service
             android:name="com.jone.app.ui.wallpaper.LiveWallpaper"
             android:label="@string/jone_wallpaper_live"
             android:permission="android.permission.BIND_WALLPAPER" >
 
-            <!-- 为实时壁纸配置intent-filter -->
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
-            <!-- 为实时壁纸配置meta-data -->
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/live_wallpaper" />
@@ -178,7 +168,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- 天气widget -->
         <receiver
             android:name="com.jone.app.ui.weatherWidget.ui.WeatherWidget"
             android:label="JoneWeather" >
@@ -193,7 +182,6 @@
         </receiver>
 
         <service android:name="com.jone.app.ui.weatherWidget.service.AppWidgetService" />
-        <!-- 天气widget  end -->
 
         <provider
             android:name="com.jone.app.contentprovider.CallRecordsContentProvider"
@@ -275,22 +263,13 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <!-- 获取CompatModeWrapper -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <!-- 读联系人权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!-- 写联系人权限 -->
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
-    <!-- &lt;!&ndash;允许程序传入电话拨号直接拨号，不需要通过用户界面确认&ndash;&gt; -->
-    <!-- <uses-permission android:name="android.permission.CALL_PHONE"/> -->
-    <!-- &lt;!&ndash;允许程序将电话号码传给拨号程序，需要用户确认好才会拨出电话&ndash;&gt; -->
-    <!-- <uses-permission android:name="android.permission.CALL_PRIVILEGED"/> -->
 
-
-    <!-- 摄像头、手电筒 -->
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-feature android:name="android.hardware.camera.flash" />
 

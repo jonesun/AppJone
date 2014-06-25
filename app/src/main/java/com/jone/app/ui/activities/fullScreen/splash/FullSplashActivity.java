@@ -8,6 +8,8 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +24,7 @@ import com.jone.app.R;
 import com.jone.app.ui.guide.GuideActivity;
 import com.jone.app.utils.FestivalUtil;
 import com.jone.app.utils.Lunar;
+import com.jone.app.utils.PhotoUtils;
 import com.jone.app.utils.Utils;
 
 import java.util.ArrayList;
@@ -40,6 +43,8 @@ public class FullSplashActivity extends Activity {
 
     private Calendar calendar;
     private FestivalUtil festivalUtil;
+
+    private Bitmap bitmapChineseZodiac;
 
     private Handler handler = new Handler(){
         @Override
@@ -91,7 +96,9 @@ public class FullSplashActivity extends Activity {
                 R.drawable.chinese_zodiac_8, R.drawable.chinese_zodiac_9, R.drawable.chinese_zodiac_10, R.drawable.chinese_zodiac_11,
         };
         ImageView im_chinese_zodiac = (ImageView) findViewById(R.id.im_chinese_zodiac);
-        im_chinese_zodiac.setImageResource(chinese_zodiac_ids[Lunar.getChineseZodiacId()]);
+        bitmapChineseZodiac = PhotoUtils.createReflectedImage(BitmapFactory.decodeResource(getResources(), chinese_zodiac_ids[Lunar.getChineseZodiacId()]));
+        im_chinese_zodiac.setImageBitmap(bitmapChineseZodiac);
+//        im_chinese_zodiac.setImageResource(chinese_zodiac_ids[Lunar.getChineseZodiacId()]);
     }
 
     private void showDate(){
@@ -150,5 +157,11 @@ public class FullSplashActivity extends Activity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PhotoUtils.recycleBitmap(bitmapChineseZodiac);
     }
 }

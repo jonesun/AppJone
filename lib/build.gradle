@@ -2,8 +2,8 @@ defaultTasks  'clean','build'
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1"
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -30,7 +30,8 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile('commons-io:commons-io:2.4')// for File IO and Simple Network Download
-    compile('org.slf4j:slf4j-api:1.7.5', 'com.github.tony19:logback-android-core:1.0.10-2', 'com.github.tony19:logback-android-classic:1.0.10-2');
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile 'commons-io:commons-io:2.4'
+    // for File IO and Simple Network Download
+    compile('org.slf4j:slf4j-api:1.7.5', 'com.github.tony19:logback-android-core:1.0.10-2', 'com.github.tony19:logback-android-classic:1.0.10-2')
 }
